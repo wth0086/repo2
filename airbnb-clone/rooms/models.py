@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django_countries.fields import CountryField
 from core import models as core_models
 from users import models as user_models
@@ -99,6 +100,9 @@ class Room(core_models.TimeStampedModel):
     def save(self, *args, **kwargs):  # save했을 때, 사용자가 쓴 형식을 내가 원하는 형식으로 바꿔서 저장하게 할 때
         self.city = str.capitalize(self.city)
         super().save(*args, **kwargs)  # Call the real save() method
+
+    def get_absolute_url(self):
+        return reverse("rooms:detail", kwargs={"pk": self.pk})
 
     def total_rating(self):
         all_reviews = self.reviews.all()
