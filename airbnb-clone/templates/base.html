@@ -1,20 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
     <title>{% block page_title %}{% endblock page_title %}| Nbnb</title>
 </head>
 
-<body>
-    <header>
+<body class="text-gray-800">
+    <header class='container max-w-full flex items-center justify-between px-6 h-20'>
+        <div class="flex items-center">
+            {% block search-bar %}
+            <form method="get" action="{% url "rooms:search" %}">
+                <input name="city" placeholder="Search by City" />
+            </form>
+            {% endblock search-bar %}
+        </div>
         {% include 'partials/nav.html' %}
-        {% block search-bar %}
-        <form method="get" action="{% url "rooms:search" %}">
-            <input name="city" placeholder="Search by City" />
-        </form>
-        {% endblock search-bar %}
     </header>
     {% block content %}{% endblock content %}
     {% include 'partials/footer.html' %}
