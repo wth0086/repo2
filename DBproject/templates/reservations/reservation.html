@@ -1,0 +1,5 @@
+{% block content %}
+<form method="GET" action="{% url "reservations:reservation" %}">
+    {{form.as_p}}
+</form>
+{% endblock content %}

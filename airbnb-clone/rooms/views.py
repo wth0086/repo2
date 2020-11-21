@@ -1,7 +1,14 @@
 from django.views.generic import ListView, DetailView
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from djreservation.views import ProductReservationView
 from . import models, forms
+
+
+class MyObjectReservation(ProductReservationView):
+    base_model = models.Room
+    amount_field = "quantity"
+    extra_display_field = ["measurement_unit"]
 
 
 class HomeView(ListView):

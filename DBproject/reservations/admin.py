@@ -44,3 +44,11 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     filter_horizontal = ("additionalService",)
+
+
+@admin.register(models.BookedDay)
+class ItemAdmin(admin.ModelAdmin):
+
+    """ Item Admin Definition """
+
+    list_display = ("roomtype", "day", "count")
