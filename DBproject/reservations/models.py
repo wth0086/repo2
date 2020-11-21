@@ -57,7 +57,9 @@ class Reservation(core_models.TimeStampedModel):
         blank=True,
     )
 
-    def save(self, *args, **kwargs):  # 날짜를 확인하고 없으면 새로운 BookedDay를 생성하는 부분을 만들어야 한다.
+    def save(
+        self, *args, **kwargs
+    ):  # 날짜를 확인하고 없으면 새로운 BookedDay를 생성하는 부분을 만들어야 한다. -> 만들었음
         start = self.checkin
         end = self.checkout
         difference = end - start
