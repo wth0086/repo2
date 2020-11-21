@@ -1,0 +1,7 @@
+{% block content %}
+<form method="POST" action="{% url "reservations:reservate" %}">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button>reservate</button>
+</form>
+{% endblock content %}
