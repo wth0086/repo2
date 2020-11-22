@@ -40,7 +40,6 @@ class Reservate(forms.ModelForm):
         reservation.card = self.cleaned_data.get("card")
         reservation.cardExpYear = self.cleaned_data.get("cardExpYear")
         reservation.cardExpMonth = self.cleaned_data.get("cardExpMonth")
-        reservation.additionalService = self.cleaned_data.get(
-            "additionalService"
-        )  # 값이 여러개 들어가는게 어떻게 해야는거지
         reservation.save()
+        reservation.additionalService.set(self.cleaned_data["additionalService"])
+        super()._save_m2m()
