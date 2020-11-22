@@ -28,7 +28,7 @@ class Reservate(forms.ModelForm):
             "additionalService",
         )
 
-    def save(self):
+    def save(self, *args, **kwargs):
         reservation = super().save(commit=False)
         reservation.created = timezone.now()
         reservation.updated = timezone.now()
@@ -44,19 +44,3 @@ class Reservate(forms.ModelForm):
             "additionalService"
         )  # 값이 여러개 들어가는게 어떻게 해야는거지
         reservation.save()
-
-        # reservation = Reservation.objects.create(
-        #     created=timezone.now(),
-        #     updated=timezone.now(),
-        #     user=user,
-        #     checkin=checkin,
-        #     checkout=checkout,
-        #     roomtype=roomtype,
-        #     bedtype=bedtype,
-        #     card=card,
-        #     cardExpYear=cardExpYear,
-        #     cardExpMonth=cardExpMonth,
-        #     additionalService=additionalService,
-        # )
-        # print(reservation)
-        # reservation.save()

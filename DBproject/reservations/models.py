@@ -57,9 +57,12 @@ class Reservation(core_models.TimeStampedModel):
         blank=True,
     )
 
-    def save(
+    def save(  # 오류 있음 이거는 save를 override한거라 기존의 save가 작동을 못함 -> 수정했음
         self, *args, **kwargs
     ):  # 날짜를 확인하고 없으면 새로운 BookedDay를 생성하는 부분을 만들어야 한다. -> 만들었음
+
+        super(Reservation, self).save(*args, **kwargs)
+
         start = self.checkin
         end = self.checkout
         difference = end - start
@@ -89,3 +92,6 @@ class BookedDay(core_models.TimeStampedModel):
     )
     day = models.DateField(null=True)
     count = models.IntegerField(default=0)
+
+    class Meta:
+        unique_together = (("roomtype", "day"),)
