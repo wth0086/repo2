@@ -4,3 +4,11 @@
     <button>Search</button>
 </form>
 {% endblock content %}
+
+{% if result %}
+<h3>Result</h3>
+{% for room_type in result %}
+{{room_type}}<br>
+{% endfor %}
+<button>Reservate</button>
+{% endif %}

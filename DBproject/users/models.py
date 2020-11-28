@@ -31,5 +31,4 @@ class User(AbstractUser):
     address = models.CharField(max_length=140)
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=2, blank=True)
     currency = models.CharField(choices=CURRENCY_CHOICES, max_length=3, blank=True)
-
-
+    phoneNumber = models.CharField(max_length=20)

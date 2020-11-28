@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from . import models
 
+
 @admin.register(models.User)
 class CustomUserAdmin(UserAdmin):
 
@@ -18,6 +19,7 @@ class CustomUserAdmin(UserAdmin):
                     "address",
                     "language",
                     "currency",
+                    "phoneNumber",
                 )
             },
         ),
@@ -33,5 +35,5 @@ class CustomUserAdmin(UserAdmin):
         "is_active",
         "language",
         "currency",
+        "phoneNumber",
     )
-    

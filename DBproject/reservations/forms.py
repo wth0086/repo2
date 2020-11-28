@@ -7,9 +7,9 @@ class ReservationForm(forms.Form):
     Start_Date = forms.DateField(widget=forms.SelectDateWidget)
     End_Date = forms.DateField(widget=forms.SelectDateWidget)
 
-    def clean(self):
-        Start_Date = self.cleaned_data.get("Start_Date")
-        End_Date = self.cleaned_data.get("End_Date")
+    # def clean(self):
+    #     Start_Date = self.cleaned_data.get("Start_Date")
+    #     End_Date = self.cleaned_data.get("End_Date")
 
 
 class Reservate(forms.ModelForm):
