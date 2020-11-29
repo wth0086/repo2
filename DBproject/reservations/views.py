@@ -13,6 +13,7 @@ from .models import BookedDay
 
 def search(request):
     form = forms.ReservationForm(request.GET)
+    result = []
     if form.is_valid():
         start = form.cleaned_data.get("Start_Date")
         end = form.cleaned_data.get("End_Date")
