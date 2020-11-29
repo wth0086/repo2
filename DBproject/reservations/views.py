@@ -25,7 +25,7 @@ def search(request):
                     day=start + datetime.timedelta(days=date), roomtype=i + 1
                 )
                 if obj.exists():
-                    if obj.get().count > 5:
+                    if obj.get().count >= 5:
                         break
                     if date == difference.days:
                         result.append(obj.get().roomtype)
